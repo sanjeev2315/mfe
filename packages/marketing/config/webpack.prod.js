@@ -6,7 +6,8 @@ const packagejson = require('./../package.json')
 const prodConfig = {
     mode: 'production',
     output: {
-        filename: '[name].[contentHash].js'
+        filename: '[name].[contentHash].js',
+        publicPath: '/marketing/latest/'
     },
     plugins: [
         new ModuleFederationPlugin({
