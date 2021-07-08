@@ -1,22 +1,25 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
-import MarketingApp from './components/MarketingApp';
+import { BrowserRouter } from 'react-router-dom';
+import {
+  StylesProvider,
+  createGenerateClassName,
+} from '@material-ui/core/styles';import MarketingApp from './components/MarketingApp';
 import Header from './components/Header';
-import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
 
 const generateClassName = createGenerateClassName({
     productionPrefix: 'co'
 })
 
-export const App = () => {
-    return  <StylesProvider generateClassName= {generateClassName}>
-    <MemoryRouter>
-        <div>
+export default () => {
+    return<div>
+    <StylesProvider generateClassName={generateClassName}>
+        <BrowserRouter>
+          <div>
             <Header/>
             <MarketingApp/>
-        </div>
-    </MemoryRouter>
+          </div>
+        </BrowserRouter>
     </StylesProvider>
+    </div>
 }
 
-export default App;
